@@ -1,16 +1,11 @@
 import React, { useCallback } from "react";
-import {
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  Dimensions,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { StyleSheet, Dimensions, TouchableWithoutFeedback } from "react-native";
 import Animated from "react-native-reanimated";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { BlurView } from "expo-blur";
 import { RootStackParamList } from "../App";
+import { BackButton } from "../components/BackButton";
 
 type FullScreenProps = NativeStackScreenProps<RootStackParamList, "FullScreen">;
 
@@ -26,16 +21,7 @@ export const FullScreen = () => {
   return (
     <TouchableWithoutFeedback onPress={onPressDone}>
       <BlurView intensity={1} style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={onPressDone}>
-          <Image
-            source={{
-              uri: "https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-close-512.png",
-            }}
-            style={styles.buttonImage}
-            // @ts-ignore
-            tintColor="white"
-          />
-        </TouchableOpacity>
+        <BackButton onPress={onPressDone} />
 
         <Animated.Image
           style={styles.image}

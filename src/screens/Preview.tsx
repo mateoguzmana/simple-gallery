@@ -3,7 +3,6 @@ import React, { useCallback } from "react";
 import {
   View,
   StyleSheet,
-  Image,
   TouchableOpacity,
   TouchableWithoutFeedback,
 } from "react-native";
@@ -12,6 +11,7 @@ import { BlurView } from "expo-blur";
 import { IMAGES } from "../constants/images";
 import { RootStackParamList } from "../App";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { BackButton } from "../components/BackButton";
 
 type PreviewProps = NativeStackScreenProps<RootStackParamList, "Preview">;
 
@@ -33,16 +33,7 @@ export const Preview = () => {
     <>
       <TouchableWithoutFeedback onPress={onPressDone}>
         <BlurView intensity={10} style={styles.container}>
-          <TouchableOpacity style={styles.button} onPress={onPressDone}>
-            <Image
-              source={{
-                uri: "https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-close-512.png",
-              }}
-              style={styles.buttonImage}
-              // @ts-ignore
-              tintColor="white"
-            />
-          </TouchableOpacity>
+          <BackButton onPress={onPressDone} />
 
           <View style={styles.row}>
             <TouchableOpacity onPress={() => onPressImage(IMAGES[0].uri)}>
