@@ -1,47 +1,70 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
-  Image,
   TouchableOpacity,
   TextInput,
   ScrollView,
 } from "react-native";
-import { Gallery } from "./Gallery";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { RootStackParamList } from "../App";
+import { Gallery } from "../components/Gallery";
+
+export type ChatProps = NativeStackScreenProps<RootStackParamList, "Chat">;
 
 export const Chat = () => {
   const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = useState<
     {
-      id: "1",
-      message: "Hi there!",
+      id: number;
+      message: string;
+      sender: "self" | "other";
+      attachment: JSX.Element | null;
+    }[]
+  >([
+    {
+      id: 1,
+      message: "Yo, you back from Colombia?",
       sender: "other",
       attachment: null,
     },
     {
-      id: "2",
-      message: "How are you?",
-      sender: "other",
-      attachment: null,
-    },
-    {
-      id: "3",
-      message: "I'm good, thanks! How about you?",
+      id: 2,
+      message: "Yeah, just got back yesterday",
       sender: "self",
       attachment: null,
     },
     {
-      id: "4",
-      message: "I'm doing well, thanks!",
+      id: 3,
+      message: "How was it?",
       sender: "other",
       attachment: null,
     },
     {
-      id: "5",
-      message: "By the way, here's a cute puppy picture",
-      sender: "other",
+      id: 4,
+      message: "It was amazing! Here are some photos",
+      sender: "self",
       attachment: <Gallery />,
+    },
+    {
+      id: 5,
+      message: "Wow, that looks amazing!",
+      sender: "other",
+      attachment: null,
+    },
+    {
+      id: 6,
+      message: "Did you go to the Amazon?",
+      sender: "other",
+      attachment: null,
+    },
+    {
+      id: 7,
+      message: "Did you try empanadas?",
+      sender: "other",
+      attachment: null,
     },
   ]);
 
@@ -61,7 +84,7 @@ export const Chat = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ScrollView
         style={styles.messagesContainer}
         showsVerticalScrollIndicator={false}
@@ -93,7 +116,7 @@ export const Chat = () => {
           <Text style={styles.sendButtonText}>Send</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -102,7 +125,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     padding: 10,
-    paddingTop: 50,
   },
   messagesContainer: {
     flex: 1,
@@ -135,7 +157,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#fff",
-    paddingVertical: 20,
   },
   input: {
     flex: 1,
