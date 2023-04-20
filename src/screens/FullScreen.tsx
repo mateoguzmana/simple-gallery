@@ -1,12 +1,22 @@
-import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useCallback } from "react";
-import { StyleSheet, Image, TouchableOpacity, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+  TouchableWithoutFeedback,
+} from "react-native";
 import Animated from "react-native-reanimated";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { BlurView } from "expo-blur";
+import { RootStackParamList } from "../App";
+
+type FullScreenProps = NativeStackScreenProps<RootStackParamList, "FullScreen">;
 
 export const FullScreen = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
+  const navigation = useNavigation<FullScreenProps["navigation"]>();
+  const route = useRoute<FullScreenProps["route"]>();
   const { uri } = route.params;
 
   const onPressDone = useCallback(() => {
@@ -14,7 +24,7 @@ export const FullScreen = () => {
   }, [navigation]);
 
   return (
-    <>
+    <TouchableWithoutFeedback onPress={onPressDone}>
       <BlurView intensity={1} style={styles.container}>
         <TouchableOpacity style={styles.button} onPress={onPressDone}>
           <Image
@@ -22,6 +32,7 @@ export const FullScreen = () => {
               uri: "https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-close-512.png",
             }}
             style={styles.buttonImage}
+            // @ts-ignore
             tintColor="white"
           />
         </TouchableOpacity>
@@ -32,7 +43,7 @@ export const FullScreen = () => {
           sharedTransitionTag={uri}
         />
       </BlurView>
-    </>
+    </TouchableWithoutFeedback>
   );
 };
 

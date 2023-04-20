@@ -1,20 +1,20 @@
 export const IMAGES = [
   {
-    uri: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80",
+    uri: "https://cdn.getyourguide.com/img/location/5cced3db8b581.jpeg/75.jpg",
   },
   {
-    uri: "https://images.freeimages.com/images/previews/ac9/railway-hdr-1361893.jpg",
+    uri: "https://assets3.thrillist.com/v1/image/3094285/792x457/scale;webp=auto;jpeg_quality=60;progressive.jpg",
   },
   {
-    uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    uri: "https://c0.wallpaperflare.com/preview/446/962/571/aerial-photography-of-islands-surrounded-with-body-of-water.jpg",
   },
   {
-    uri: "https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg",
+    uri: "https://www.neotropicexpeditions.com/wp-content/uploads/2019/06/Classic-Colombia-Essential-7-Days-960x1149.jpeg",
   },
   {
-    uri: "https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg",
+    uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8pFVZrVtXtEw4wyb0TxTmhg0IFXaZeir09A&usqp=CAU",
   },
   {
-    uri: "https://img.freepik.com/premium-photo/image-colorful-galaxy-sky-generative-ai_791316-9864.jpg?w=2000",
+    uri: "https://preview.redd.it/the-rock-of-guatape-medellin-colombia-v0-1hlx7dvpd7s91.jpg?auto=webp&s=91f3cc4fdba4cc22f06fe80bdb064dd98c8c2133",
   },
 ];
