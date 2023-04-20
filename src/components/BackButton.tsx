@@ -5,7 +5,7 @@ interface BackButtonProps {
   onPress(): void;
 }
 
-export const FullScreen = ({ onPress }: BackButtonProps) => {
+export const BackButton = ({ onPress }: BackButtonProps) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <Image
@@ -13,8 +13,6 @@ export const FullScreen = ({ onPress }: BackButtonProps) => {
           uri: "https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-close-512.png",
         }}
         style={styles.buttonImage}
-        // @ts-ignore
-        tintColor="white"
       />
     </TouchableOpacity>
   );
@@ -32,5 +30,6 @@ const styles = StyleSheet.create({
   buttonImage: {
     width: 25,
     height: 25,
+    tintColor: "white",
   },
 });
